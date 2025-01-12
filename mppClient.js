@@ -5,7 +5,9 @@ mppClient.js
 This is a barebones Node.js WebSocket client created for Multiplayer Piano.
 Based on: https://github.com/mppnet/frontend
 
-Callum Fisher <cf.fisher.bham@gmail.com> */
+Callum Fisher <cf.fisher.bham@gmail.com>
+
+License: https://github.com/slowstone72/mpp-client/blob/main/LICENSE.txt */
 
 // Fetch dependencies:
 
