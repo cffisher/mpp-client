@@ -1,4 +1,4 @@
-/* "Multiplayer Piano Node.js Client" v1.0.2
+/* "Multiplayer Piano Node.js Client" v2.0.0
 mppClient.js
 2025.01.11 - 2025.01.26
 
@@ -29,9 +29,9 @@ module.exports = class Client extends eventEmitter {
 
 		// Define config for this client:
 
-		if (typeof config !== 'object' || !config.address) return;
+		if (typeof config !== 'object' || !config.server) return;
 
-		this.address = config.address;
+		this.server = config.server;
 		
 		if (config.channel) this.desiredChannel = config.channel;
 		if (config.pingTime) this.pingTime = config.pingTime;
@@ -58,9 +58,9 @@ module.exports = class Client extends eventEmitter {
 
 		if (this.connected() || this.connecting()) return; // Yes, do not connect again.
 
-		// No, create a new WebSocket at the provided address:
+		// No, create a new WebSocket at the provided server address:
 
-		this.ws = new webSocket(this.address); /* {
+		this.ws = new webSocket(this.server); /* {
 			origin: 'https://game.multiplayerpiano.com'
 		}); */
 
