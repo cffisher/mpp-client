@@ -1,13 +1,13 @@
-/* "Multiplayer Piano Node.js Client" v1.0.0
+/* "Multiplayer Piano Node.js Client" v1.0.1
 mppClient.js
-2025.01.11 - 2025.01.12
+2025.01.11 - 2025.01.26
 
 This is a barebones Node.js WebSocket client created for Multiplayer Piano.
 Based on: https://github.com/mppnet/frontend
 
 Callum Fisher <cf.fisher.bham@gmail.com>
 
-License: https://github.com/slowstone72/mpp-client/blob/main/LICENSE.txt */
+License: https://github.com/cffisher/mpp-client/blob/main/LICENSE.txt */
 
 // Fetch dependencies:
 
@@ -20,16 +20,16 @@ module.exports = class pianoClient extends eventEmitter {
 
 	// Define a constructor for 'pianoClient':
 
-	constructor (settings) {
+	constructor (config) {
 
 		super();
 
 		this.connect = this.connect.bind(this);
 		this.disconnect = this.disconnect.bind(this);
 
-		// Define settings for this client:
+		// Define config for this client:
 
-		if (typeof settings !== 'object' || !config.address) return;
+		if (typeof config !== 'object' || !config.address) return;
 
 		this.address = config.address;
 		
@@ -40,7 +40,7 @@ module.exports = class pianoClient extends eventEmitter {
 		this.users = {};
 		// this.noteBuffer = [];
 		// this.noteBufferTime = 0;
-		this['🐈'] = 0;
+		// this['🐈'] = 0;
 
 		this.offlineUser = {
 			name: '',
@@ -74,7 +74,7 @@ module.exports = class pianoClient extends eventEmitter {
 				'm': 'hi',
 				'x': 50,
 				'y': 50,
-				'🐈': this['🐈']++ || undefined // I don't why this cat is here, but it's here.
+				//'🐈': this['🐈']++ || undefined // I don't why this cat is here, but it's here.
 			}];
 
 			// If this server uses tokens, check if a token was specified:
