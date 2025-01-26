@@ -1,4 +1,4 @@
-/* "Multiplayer Piano Node.js Client" v1.0.1
+/* "Multiplayer Piano Node.js Client" v1.0.2
 mppClient.js
 2025.01.11 - 2025.01.26
 
@@ -14,11 +14,11 @@ License: https://github.com/cffisher/mpp-client/blob/main/LICENSE.txt */
 webSocket = require('ws');
 eventEmitter = require('events').EventEmitter;
 
-// Define and export the pianoClient class as an extension of eventEmitter:
+// Define and export the Client class as an extension of eventEmitter:
 
-module.exports = class pianoClient extends eventEmitter {
+module.exports = class Client extends eventEmitter {
 
-	// Define a constructor for 'pianoClient':
+	// Define a constructor for 'Client':
 
 	constructor (config) {
 
@@ -33,7 +33,7 @@ module.exports = class pianoClient extends eventEmitter {
 
 		this.address = config.address;
 		
-		if (config.desiredChannel) this.desiredChannel = config.desiredChannel;
+		if (config.channel) this.desiredChannel = config.channel;
 		if (config.pingTime) this.pingTime = config.pingTime;
 
 		this.serverTimeOffset = 0;
